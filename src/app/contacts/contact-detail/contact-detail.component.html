@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-xs-12">
         <a href="#" class="list-group-item clearfix"
-        *ngFor="let contact of contacts">
+        >
             <div class="pull-left">
                 <h4 class="list-group-item-heading">{{ contact.name }}</h4>
                 <!-- <p class="list-group-item-text">{{ contact.id }}</p> -->
                 <p class="list-group-item-text">Email: {{ contact.email }}</p>
                 <!-- <p class="list-group-item-text">{{ contact.group }}</p> -->
                 <!-- <p class="list-group-item-text">{{ contact.imageUrl }}</p> -->
-                <p class="list-group-item-text">Phone Number: {{ contact.phoneNumber }}</p>
+                <!-- <p class="list-group-item-text">Phone Number: {{ contact.phoneNumber }}</p> -->
                 <div class="row">
                     <div class="btn-toolbar col-xs-12">
                         <button class="btn btn-danger">Delete</button>
@@ -25,28 +25,31 @@
         </a>
     </div>
 </div>
+
+
 <!-- <div class="row">
     <div class="col-xs-12">
+        <img src="" alt="" class="img-responsive">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{ contact.name }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
         <div class="btn-group">
-            <button type="button"
+            <button 
+             type="button"
              class="btn btn-primary dropdown-toggle">
              Manage Contact <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">Add</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Delete</a></li>
+                <li><a href="#">To contact list</a></li>
+                <li><a href="#">Edit Contact</a></li>
+                <li><a href="#">Delete Contact</a></li>
             </ul>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-        Description
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-        Ingredient
     </div>
 </div> -->
