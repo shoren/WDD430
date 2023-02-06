@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Document } from '../../document.model';
+import { DocumentService } from '../../document.service';
 
 @Component({
   selector: 'cms-document-item',
@@ -8,9 +9,13 @@ import { Document } from '../../document.model';
 })
 export class DocumentItemComponent {
   @Input() document: Document;
-  @Output() documentSelected = new EventEmitter<void>();
+
+  constructor(private documentService: DocumentService){
+
+  }
+  
   
   onSelected(){
-    this.documentSelected.emit();
+    this.documentService.documentSelectedEvent.emit(this.document)
   }
 }
