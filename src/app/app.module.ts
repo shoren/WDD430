@@ -11,11 +11,15 @@ import { ContactItemComponent } from './contacts/contact-list/contact-item/conta
 import { DocumentsComponent } from './documents/documents.component';
 import { DocumentListComponent } from './documents/document-list/document-list.component';
 import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
-import { MessageItemComponent } from './messages/message-item/message-item.component';
+import { MessageItemComponent } from './messages/message-list/message-item/message-item.component';
 import { MessageEditComponent } from './messages/message-edit/message-edit.component';
 import { MessageListComponent } from './messages/message-list/message-list.component';
 import { DocumentItemComponent } from './documents/document-list/document-item/document-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ContactStartComponent } from './contacts/contact-start/contact-start.component';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+// import { DocumentEditComponentComponent } from './documents/document-edit-component/document-edit-component.component';
+import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 
 
 @NgModule({
@@ -34,6 +38,10 @@ import { DropdownDirective } from './shared/dropdown.directive';
     MessageListComponent,
     DocumentItemComponent,
     DropdownDirective,
+    ContactStartComponent,
+    ContactEditComponent,
+    // DocumentEditComponentComponent,
+    DocumentEditComponent,
   ],
   imports: [
     BrowserModule,

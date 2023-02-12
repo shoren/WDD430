@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
-        <a href="#" class="list-group-item clearfix"
+        <a  class="list-group-item clearfix"
         >
             <div class="pull-left">
                 <h4 class="list-group-item-heading">{{ contact.name }}</h4>
@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="btn-toolbar col-xs-12">
                         <button class="btn btn-danger">Delete</button>
-                        <button class="btn btn-success">Edit</button>
+                        <button class="btn btn-success" (click)="onEditContact()">Edit</button>
                     </div>
                 </div>
             </div>

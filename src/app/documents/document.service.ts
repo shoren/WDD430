@@ -28,4 +28,8 @@ export class DocumentService {
     }
     return null as any;
   }
+
+   getADocument(id: number){
+    return this.documents[id];
+   }
 }

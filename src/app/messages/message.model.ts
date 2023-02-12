@@ -1,4 +1,4 @@
-import { MessageItemComponent } from "./message-item/message-item.component";
+import { MessageItemComponent } from "./message-list/message-item/message-item.component";
 import { MessageListComponent } from "./message-list/message-list.component";
 
 export class Message{

@@ -19,14 +19,31 @@ export class ContactService {
    }
 
 
-   getContact(id: string) : Contacts{
-    for (const contact of this.contacts) {
+  //  getContact(id: string) : Contacts{
+  //   for (const contact of this.contacts) {
+  //     if(contact.id == id) {
+  //        return contact;
+  //     }
+  //   }
+  //   return null as any;
+  // }
+
+  getContact(id: string) : Contacts {
+    for (let contact of this.contacts) {
       if(contact.id == id) {
          return contact;
       }
     }
     return null as any;
   }
+
+  getAContact(id: number){
+    return this.contacts[id];
+  }
+
+  // getContact(id: number){
+  //   return this.contacts[id];
+  // }
 
 
 }
