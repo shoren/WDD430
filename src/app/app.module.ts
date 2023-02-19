@@ -20,6 +20,8 @@ import { ContactStartComponent } from './contacts/contact-start/contact-start.co
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 // import { DocumentEditComponentComponent } from './documents/document-edit-component/document-edit-component.component';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
+import { DocumentStartComponent } from './documents/document-start/document-start.component';
+import { DocumentService } from './documents/document.service';
 
 
 @NgModule({
@@ -42,12 +44,13 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
     ContactEditComponent,
     // DocumentEditComponentComponent,
     DocumentEditComponent,
+    DocumentStartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DocumentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { };

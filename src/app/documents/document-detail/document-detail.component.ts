@@ -1,7 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Document } from '../document.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { DocumentService } from '../document.service';
+import { Document } from '../document.model';
+
 
 
 @Component({
@@ -14,8 +16,8 @@ export class DocumentDetailComponent {
   id: number;
 
   constructor(private documentService: DocumentService,
-              private router: Router,
-              private route: ActivatedRoute){
+              private route: ActivatedRoute,
+              private router: Router){
 
   }
 
@@ -27,6 +29,11 @@ export class DocumentDetailComponent {
         this.document = this.documentService.getADocument(this.id);
       }
     );
+  }
+
+  onEditDocument(){
+    // this.router.navigate(['id'],{relativeTo: this.route});
+    this.router.navigate(['../',this.id,'edit'], {relativeTo: this.route});
   }
 
 

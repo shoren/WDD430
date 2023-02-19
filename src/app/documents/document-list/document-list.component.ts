@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'cms-document-list',
@@ -12,12 +13,17 @@ export class DocumentListComponent {
 
   document:Document[] = [];
 
-  constructor(private documentService: DocumentService){
-    
+  constructor(private documentService: DocumentService,
+              private router: Router,
+              private route: ActivatedRoute){
   }
 
   ngOnInit(){
     this.document = this.documentService.getDocuments();
+  }
+
+  OnNewDocument(){
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
   // onSelectedDocument(document: Document){
