@@ -26,6 +26,10 @@ export class DocumentListComponent {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
+  onEditDocument(index: number){
+    this.documentService.startedEditting.next(index);
+  }
+
   // onSelectedDocument(document: Document){
   //   // this.documentWasSelected.emit(document);
   // }

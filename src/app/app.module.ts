@@ -22,7 +22,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { DocumentStartComponent } from './documents/document-start/document-start.component';
 import { DocumentService } from './documents/document.service';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { DocumentService } from './documents/document.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [DocumentService],
   bootstrap: [AppComponent]

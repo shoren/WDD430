@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 export class DocumentService {
   documentSelectedEvent = new EventEmitter<Document>();
   documentListChangedEvent: Subject<Document[]> = new Subject<Document[]>();
-
+  startedEditting = new Subject<number>()
   // documentListChangedEvent : Document[] = []
   
   private documents: Document[] = []
@@ -82,7 +82,9 @@ export class DocumentService {
    updateDocument(originalDocument: Document, newDocument: Document){
     if(!originalDocument || !newDocument){
       return;
+      
     }
+    console.log('updateDocument');
 
     let pos = this.documents.indexOf(originalDocument)
     if(pos < 0 ){
