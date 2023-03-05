@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import { Subject } from 'rxjs';
 import {Contacts} from './contacts.model';
 import {MOCKCONTACTS} from './MOCKCONTACTS';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +26,26 @@ export class ContactService {
     return maxId;
 }
 
-   constructor() {
+   constructor(private http: HttpClient) {
       this.contacts = MOCKCONTACTS;
    }
 
-   getContacts(): Contacts[]{
-    return this.contacts.slice();
-   }
+  //  getContacts(): Contacts[]{
+  //   return this.contacts.slice();
+  //  }
+
+
+  getContacts() {
+    return this.http.get('https://shorenfullstack-default-rtdb.firebaseio.com/')
+      .subscribe((contacts: Contacts[]) => {
+        this.contacts = contacts;
+        this.maxContactId = this.getMaxId();
+        //sort
+      },
+      (error: any) => {
+        console.log(error);
+      });
+  }
 
   getContact(id: string) : Contacts {
     for (let contact of this.contacts) {
