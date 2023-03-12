@@ -23,6 +23,8 @@ import { DocumentEditComponent } from './documents/document-edit/document-edit.c
 import { DocumentStartComponent } from './documents/document-start/document-start.component';
 import { DocumentService } from './documents/document.service';
 import { FormsModule } from '@angular/forms';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -45,8 +47,10 @@ import { FormsModule } from '@angular/forms';
     // DocumentEditComponentComponent,
     DocumentEditComponent,
     DocumentStartComponent,
+    ContactsFilterPipe,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule

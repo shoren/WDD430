@@ -15,7 +15,7 @@ export class MessageListComponent {
   }
 
   ngOnInit(){
-    this.message = this.messageService.getMessages();
+    this.messageService.getMessages();
   }
 
 }

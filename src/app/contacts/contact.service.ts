@@ -36,10 +36,11 @@ export class ContactService {
 
 
   getContacts() {
-    return this.http.get('https://shorenfullstack-default-rtdb.firebaseio.com/')
+    return this.http.get<Contacts[]>('https://shorenfullstack-default-rtdb.firebaseio.com/')
       .subscribe((contacts: Contacts[]) => {
         this.contacts = contacts;
         this.maxContactId = this.getMaxId();
+        this.contacts.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
         //sort
       },
       (error: any) => {

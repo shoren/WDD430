@@ -33,7 +33,7 @@ export class DocumentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(){
-    this.document = this.documentService.getDocuments();
+    this.documentService.getDocuments();
     // this.documentService.documentSelectedEvent
     this.docChangedSub = this.documentService.documentListChangedEvent
     .subscribe(
