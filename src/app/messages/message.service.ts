@@ -25,7 +25,7 @@ export class MessageService {
   private messages: Message[] = []
 
   constructor( private http: HttpClient) {
-    this.messages = MOCKMESSAGES
+    // this.messages = MOCKMESSAGES
     this.getMessages();
   }
 
@@ -47,7 +47,7 @@ export class MessageService {
   // }
 
   getMessages(){
-    this.http.get<Message[]>('https://shorenfullstack-default-rtdb.firebaseio.com/')
+    this.http.get<Message[]>('https://shorenfullstack-default-rtdb.firebaseio.com/messages.json')
     .subscribe(
       (message: Message[]) => {
         this.messages = message;

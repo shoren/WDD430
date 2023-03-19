@@ -1,16 +1,19 @@
 import { Component, EventEmitter, Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Document } from './document.model';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
-import { Observable, Subject } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   providers:[DocumentService]
 })
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class DocumentService {
   documentSelectedEvent = new EventEmitter<Document>();
   documentListChangedEvent: Subject<Document[]> = new Subject<Document[]>();
@@ -18,20 +21,9 @@ export class DocumentService {
   // documentListChangedEvent : Document[] = []
   
   
-  documents: Document[] = [];
+  private documents: Document[] = [];
   maxDocumentId: number;
 
-  constructor(private http: HttpClient, documentService: DocumentService) {
-    this.documents = MOCKDOCUMENTS
-    this.maxDocumentId = this.getMaxId();
-
-   }
-   
-
-   
-
-
-  
   getMaxId(): number {
     let maxId = 0
     
@@ -50,21 +42,16 @@ export class DocumentService {
   //  }
 
 
-   getDocument(id: string) : Document{
-    for (let document of this.documents) {
-      if(document.id == id) {
-         return document;
-      }
-    }
-    return null as any;
-  }
+  constructor(private http: HttpClient) {
+    // this.documents = MOCKDOCUMENTS
+    // this.maxDocumentId = this.getMaxId();
+    this.getDocuments();
 
-   getADocument(id: number){
-    return this.documents[id];
    }
 
+
    getDocuments(){
-    return this.http.get('https://shorenfullstack-default-rtdb.firebaseio.com/')
+    this.http.get<Document[]>('https://shorenfullstack-default-rtdb.firebaseio.com/documents.json/')
     .subscribe(
       (documents: Document[]) => {
         this.documents = documents;
@@ -79,7 +66,20 @@ export class DocumentService {
    }
 
 
+   getDocument(id: string) : Document{
+    for (let document of this.documents) {
+      if(document.id == id) {
+         return document;
+      }
+    }
+    return null as any;
+  }
 
+   getADocument(id: number){
+    return this.documents[id];
+   }
+
+   
    storeDocuments() {
     const documents = this.documents.slice();
     const data = JSON.stringify(documents);

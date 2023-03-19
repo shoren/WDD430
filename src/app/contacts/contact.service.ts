@@ -7,6 +7,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ContactService {
   contactSelected = new EventEmitter<Contacts>();
   contactListChangedEvent: Subject<Contacts[]> = new Subject<Contacts[]>();
@@ -27,26 +28,31 @@ export class ContactService {
 }
 
    constructor(private http: HttpClient) {
-      this.contacts = MOCKCONTACTS;
+      this.getContacts();
    }
 
-  //  getContacts(): Contacts[]{
-  //   return this.contacts.slice();
-  //  }
 
-
+ 
+// current version
   getContacts() {
-    return this.http.get<Contacts[]>('https://shorenfullstack-default-rtdb.firebaseio.com/')
+
+    // results = 
+
+    this.http.get<Contacts[]>('https://shorenfullstack-default-rtdb.firebaseio.com/contacts.json/')
       .subscribe((contacts: Contacts[]) => {
         this.contacts = contacts;
         this.maxContactId = this.getMaxId();
         this.contacts.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
         //sort
+
+        
       },
       (error: any) => {
         console.log(error);
+        // return null;
       });
-  }
+    }
+
 
   getContact(id: string) : Contacts {
     for (let contact of this.contacts) {
